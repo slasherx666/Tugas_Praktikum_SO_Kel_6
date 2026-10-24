@@ -21,23 +21,36 @@
 - Memiliki izin membaca folder sumber dan menulis ke folder tujuan.
 
 **Langkah-langkah**
-1. Berikan izin eksekusi:
+1. Buka terminal pada direktori repository yang berisi file backup_ecommerce.sh.
+2. Berikan izin eksekusi agar script dapat dijalankan dengan perintah berikut:
 ```bash
 chmod +x backup_ecommerce.sh
 ```
-2. Siapkan folder sumber berisi data dummy dan folder tujuan untuk pengujian:
+3. Siapkan folder sumber berisi data yang akan di-backup dan folder tujuan untuk menyimpan hasil backup:
 ```bash
 mkdir -p dummy_assets/rekap_pesanan
 mkdir -p backup_folder
+```
+Untuk pengujian, tambahkan satu file data dummy ke folder sumber:
+```bash
 echo "Data pesanan dummy" > dummy_assets/rekap_pesanan/pesanan.txt
 ```
-3. Jalankan script dengan dua parameter:
+4. Jalankan script dengan memasukkan lokasi folder sumber dan folder tujuan:
 ```bash
 ./backup_ecommerce.sh dummy_assets/rekap_pesanan backup_folder
 ```
-Parameter pertama adalah folder sumber yang akan dicadangkan. Parameter kedua adalah folder tujuan untuk menyimpan arsip backup.
+Pada perintah tersebut, **dummy_assets/rekap_pesanan** merupakan parameter pertama, yaitu folder yang datanya akan dicadangkan. Sementara itu, **backup_folder** merupakan parameter kedua, yaitu folder tempat menyimpan hasil backup.
 
-Arsip yang dihasilkan menggunakan format nama **backup_assets_TIMESTAMP.tar.gz**, dengan timestamp sesuai waktu eksekusi.
+5. Periksa hasil backup dengan melihat isi folder tujuan:
+```bash
+ls -lh backup_folder/
+```
+Jika proses berhasil, akan muncul file arsip dengan format **.tar.gz.** Nama file dilengkapi timestamp agar setiap hasil backup dapat dibedakan berdasarkan waktu pembuatannya.
+
+6. Periksa log aktivitas untuk mengetahui informasi proses backup, termasuk pesan keberhasilan atau kesalahan:
+```bash
+cat backup_activity.log
+```
 
 ## 4. Exit Status
 | Kode | Keterangan |
