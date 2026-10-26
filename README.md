@@ -83,10 +83,9 @@ Kode exit digunakan untuk mengetahui hasil eksekusi script. Kode dapat diperiksa
 - [fitur yang belum selesai, jika ada]
 
 ## 9. Kontribusi Anggota
-| Nama | NIM | Kontribusi |
-|---|---|---|
-| Marsha Indriani | 2510501049 | Merancang skenario uji coba (1 berhasil, 2 gagal), melakukan eksekusi perintah terminal, dan validasi exit status.
- |
+| *Nama* | *NIM* | *Kontribusi* |
+| ----- | ----- | ----- |
+| Marsha Indriani | 2510501049 | Merancang skenario uji coba (1 berhasil, 2 gagal), melakukan eksekusi perintah terminal, dan validasi exit status. |
 | Indah Aura Nathania | 2510501058 | Melakukan pengecekan akhir pada source code (bebas kredensial), memastikan kelengkapan rubrik, dan mempublikasikan Release Tag ke portal e-learning kampus. |
 | Nafizza Azzahra | 2510501061 | Merancang arsitektur script modular, logika error handling, dan implementasi validasi parameter. |
 | Muhamad Rasya Alfajri | 2510501062 | Melakukan setup repository GitHub, cloning, dan manajemen branch. |
