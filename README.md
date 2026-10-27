@@ -81,7 +81,9 @@ Verifikasi dilakukan dengan cara memeriksa isi arsip menggunakan perintah tar -t
 | 3 | Gagal: argumen kosong | [..] | exit [..] | [isi dari eksekusi nyata] | [..] |
 
 ## 8. Batasan
-- [fitur yang belum selesai, jika ada]
+- Belum ada fitur verifikasi checksum otomatis untuk memastikan integritas file backup.
+- Belum ada fitur pemulihan (restore) otomatis untuk mengembalikan data dari arsip backup.
+- Script hanya dapat melakukan backup terhadap folder sumber yang tersedia. Jika folder sumber tidak ditemukan, maka proses backup akan dihentikan dan pesan kesalahan dicatat ke log.
 
 ## 9. Kontribusi Anggota
 | *Nama* | *NIM* | *Kontribusi* |
