@@ -96,7 +96,5 @@ Verifikasi dilakukan dengan cara memeriksa isi arsip menggunakan perintah tar -t
 
 ## 10. Informasi Repository dan Rilis
 - **Nama kelompok:** Kelompok 6
-- **Repository:** [Isi URL repository kelompok]
-- **Branch:** [Isi nama branch]
-- **Commit ID atau tag:** [Isi setelah commit atau tag dibuat]
-- **Tag yang disarankan:** P2-CHECKPOINT-P11-v01
+- **Repository:** Tugas_Praktikum_SO_Kel_6
+- **Branch:** Main
