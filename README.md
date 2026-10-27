@@ -94,9 +94,9 @@ Langkah-langkah pengujian:
 ## 7. Test Case dan Hasil Aktual
 | No | Skenario | Perintah | Hasil yang diharapkan | Hasil aktual | Interpretasi |
 |---|---|---|---|---|---|
-| 1 | Sukses | [..] | exit 0 | [isi dari eksekusi nyata] | [..] |
-| 2 | Gagal: sumber tidak ada | [..] | exit [..] | [isi dari eksekusi nyata] | [..] |
-| 3 | Gagal: argumen kosong | [..] | exit [..] | [isi dari eksekusi nyata] | [..] |
+| 1 | Sukses | ./backup_ecommerce.sh dummy_assets/rekap_pesanan backup_folder | exit 0, arsip .tar.gz terbentuk, log SUCCESS | Exit 0. Log: [INFO] Folder tujuan 'backup_folder' belum ada, membuat folder baru..., [INFO] Memulai proses backup ..., [SUCCESS] Backup berhasil disimpan di 'backup_folder/backup_assets_20261027_212248.tar.gz'. Arsip terbentuk (165 byte) dan tar -tzf menampilkan ./ dan ./oktober.csv. | Backup berhasil. Folder tujuan dibuat otomatis, nama arsip memuat timestamp, dan isi arsip sesuai folder sumber. |
+| 2 | Gagal: sumber tidak ada | ./backup_ecommerce.sh folder_ngasal backup_folder | exit 2, pesan error di log, tidak ada arsip baru | Exit 2. Log: [ERROR] Folder sumber 'folder_ngasal' tidak ditemukan! | Validasi parameter pertama bekerja. Script berhenti sebelum membuat arsip dan kegagalan tercatat di log. |
+| 3 | Gagal: argumen kosong | ./backup_ecommerce.sh | 	exit 1, pesan cara pakai di log | Exit 1. Log: [ERROR] Jumlah parameter tidak sesuai. Cara pakai: ./backup_ecommerce.sh <folder_sumber> <folder_tujuan> | Validasi jumlah parameter bekerja dan memberi petunjuk penggunaan yang jelas kepada pengguna. |
 
 ## 8. Batasan
 - Belum ada fitur verifikasi checksum otomatis untuk memastikan integritas file backup.
