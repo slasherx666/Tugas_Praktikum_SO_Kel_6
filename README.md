@@ -67,6 +67,8 @@ Kode exit digunakan untuk mengetahui hasil eksekusi script. Kode dapat diperiksa
 ## 5. Cara Verifikasi
 [contoh: cek file arsip di backup_folder, jalankan `tar -tzf <arsip>`, bandingkan checksum, lihat baris INFO di log]
 
+Verifikasi dilakukan dengan cara memeriksa isi arsip menggunakan perintah tar -tzf dan melihat log aktivitas pada file backup_activity.log. Hasil pemeriksaan menunjukkan bahwa arsip dapat dibaca dan berisi folder resi/, folder rekap_pesanan/, serta file rekap_pesanan/oktober.csv. Log mencatat bahwa file backup berhasil disimpan, tetapi terdapat pesan kesalahan karena folder sumber dari folder_ngasal tidak ditemukan. Pemeriksaan checksum belum dilakukan karena belum tersedia nilai checksum pembanding. 
+
 ## 6. Cleanup dan Rollback
 **Cleanup:** [contoh: hapus arsip di backup_folder dan file log hasil uji]
 
