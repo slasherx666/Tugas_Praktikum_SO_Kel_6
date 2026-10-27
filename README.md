@@ -69,9 +69,27 @@ Kode exit digunakan untuk mengetahui hasil eksekusi script. Kode dapat diperiksa
 Verifikasi dilakukan dengan cara memeriksa isi arsip menggunakan perintah tar -tzf dan melihat log aktivitas pada file backup_activity.log. Hasil pemeriksaan menunjukkan bahwa arsip dapat dibaca dan berisi folder resi/, folder rekap_pesanan/, serta file rekap_pesanan/oktober.csv. Log mencatat bahwa file backup berhasil disimpan, tetapi terdapat pesan kesalahan karena folder sumber dari folder_ngasal tidak ditemukan. Pemeriksaan checksum belum dilakukan karena belum tersedia nilai checksum pembanding. 
 
 ## 6. Cleanup dan Rollback
-**Cleanup:** [contoh: hapus arsip di backup_folder dan file log hasil uji]
+### Cleanup 
+Cleanup dilakukan untuk menghapus direktori dan file sementara yang digunakan selama proses pengujian agar tidak meninggalkan file yang tidak diperlukan di dalam repository.
 
-**Rollback:** [contoh: ekstrak arsip ke lokasi semula, atau hapus arsip yang baru dibuat agar kembali ke kondisi sebelum script dijalankan]
+Langkah-langkah cleanup:
+1. Menghapus direktori pengujian menggunakan perintah `rm -r test_cleanup`.
+2. Memastikan direktori sudah terhapus menggunakan perintah `ls -ld test_cleanup`.
+3. Memeriksa kondisi repository menggunakan perintah `git status`.
+
+**Hasil pengujian:** Direktori `test_cleanup` berhasil dihapus. Perintah `ls` menampilkan pesan bahwa direktori tidak ditemukan, sedangkan `git status` menunjukkan `nothing to commit, working tree clean`. Hal ini menunjukkan bahwa file pengujian telah dibersihkan dan tidak ada perubahan lokal yang tertinggal di repository.
+
+### Rollback
+Rollback diuji untuk memastikan data dapat dipulihkan dari arsip backup ketika file sumber mengalami perubahan.
+
+Langkah-langkah pengujian:
+1. Membuat file sumber `pesanan.txt` yang berisi `Data sebelum perubahan`.
+2. Membuat arsip backup bernama `rollback_test.tar.gz`.
+3. Mengubah isi file sumber menjadi `Data setelah perubahan`.
+4. Memulihkan data dari arsip backup ke direktori `restore` menggunakan perintah `tar -xzf test_cleanup/backup/rollback_test.tar.gz -C test_cleanup/restore`.
+5. Memeriksa isi file hasil pemulihan menggunakan perintah `cat` dan memverifikasi isinya menggunakan `grep -Fx`.
+
+**Hasil pengujian:** Proses pemulihan berhasil mengembalikan isi file pada direktori `restore` menjadi `Data sebelum perubahan`. Perintah verifikasi menghasilkan *exit code* `0`, yang menandakan bahwa teks yang dicari ditemukan. Sementara itu, file sumber tetap berisi `Data setelah perubahan`, sehingga dapat dipastikan bahwa pemulihan dilakukan ke direktori terpisah dan tidak menimpa file sumber.
 
 ## 7. Test Case dan Hasil Aktual
 | No | Skenario | Perintah | Hasil yang diharapkan | Hasil aktual | Interpretasi |
