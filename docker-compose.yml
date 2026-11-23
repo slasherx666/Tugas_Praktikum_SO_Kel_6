@@ -1,0 +1,24 @@
+services:
+  backup:
+    build: .
+    image: sysguard-backup:1.0
+    container_name: sysguard-backup
+    restart: "no"
+    privileged: false
+    cpus: "0.5"
+    mem_limit: 256m
+    pids_limit: 100
+    volumes:
+      - ./dummy_assets/rekap_pesanan:/data/source:ro
+      - backup_data:/data/backup
+      - log_data:/data/logs
+    networks:
+      - sysguard-net
+
+volumes:
+  backup_data:
+  log_data:
+
+networks:
+  sysguard-net:
+    driver: bridge
