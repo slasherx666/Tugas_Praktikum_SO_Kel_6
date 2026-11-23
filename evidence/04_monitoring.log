@@ -1,0 +1,12 @@
+CONTAINER ID   IMAGE                 COMMAND            CREATED          STATUS          PORTS     NAMES
+3a59987652b9   sysguard-backup:1.0   "sleep infinity"   23 minutes ago   Up 23 minutes             sysguard-backup
+CONTAINER ID   NAME              CPU %     MEM USAGE / LIMIT   MEM %     NET I/O         BLOCK I/O     PIDS
+3a59987652b9   sysguard-backup   0.00%     372KiB / 256MiB     0.14%     1.67kB / 126B   53.2kB / 0B   1
+NanoCpus=500000000 Memory=268435456 PidsLimit=100 Privileged=false
+NETWORK ID     NAME                                    DRIVER    SCOPE
+a6c6c2adb8c1   tugas_praktikum_so_kel_6_sysguard-net   bridge    local
+DRIVER    VOLUME NAME
+local     tugas_praktikum_so_kel_6_backup_data
+local     tugas_praktikum_so_kel_6_log_data
+[{"Type":"bind","Source":"/home/rasya/Tugas_Praktikum_SO_Kel_6/dummy_assets/rekap_pesanan","Destination":"/data/source","Mode":"ro","RW":false,"Propagation":"rprivate"},{"Type":"volume","Name":"tugas_praktikum_so_kel_6_backup_data","Source":"/var/lib/docker/volumes/tugas_praktikum_so_kel_6_backup_data/_data","Destination":"/data/backup","Driver":"local","Mode":"rw","RW":true,"Propagation":""},{"Type":"volume","Name":"tugas_praktikum_so_kel_6_log_data","Source":"/var/lib/docker/volumes/tugas_praktikum_so_kel_6_log_data/_data","Destination":"/data/logs","Driver":"local","Mode":"rw","RW":true,"Propagation":""}]
+uid=1000(backupuser) gid=1000(backupuser) groups=1000(backupuser)

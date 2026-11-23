@@ -1,0 +1,22 @@
+== Uji dimulai Mon Nov 23 19:48:17 WIB 2026 ==
+T01 | Backup normal | expected=0 actual=0 | PASS
+T02 | Sumber tidak ada | expected=2 actual=2 | PASS
+T03 | Tanpa argumen | expected=1 actual=1 | PASS
+T04 | Tujuan read-only | exit aktual=4 (cocokkan dengan tabel exit status README)
+touch: cannot touch '/data/source/x': Read-only file system
+T05 | Tulis ke mount read-only ditolak | rc=1 | PASS
+./
+./oktober.csv
+T06 | Arsip dapat dibaca | expected=0 actual=0 | PASS
+T07 | Persistensi setelah down/up | sebelum=2 sesudah=2
+T07 | PASS
+T08 | NanoCpus=500000000 Memory=268435456 PidsLimit=100 Privileged=false
+CONTAINER ID   NAME              CPU %     MEM USAGE / LIMIT   MEM %     NET I/O         BLOCK I/O     PIDS
+3a59987652b9   sysguard-backup   0.00%     468KiB / 256MiB     0.18%     1.18kB / 126B   8.19kB / 0B   1
+[2026-11-23 12:35:47] [INFO] Memulai proses backup dari '/data/source' ke '/data/backup/backup_assets_20261123_123547.tar.gz'...
+[2026-11-23 12:35:47] [SUCCESS] Backup berhasil disimpan di '/data/backup/backup_assets_20261123_123547.tar.gz'.
+[2026-11-23 12:48:18] [INFO] Memulai proses backup dari '/data/source' ke '/data/backup/backup_assets_20261123_124818.tar.gz'...
+[2026-11-23 12:48:19] [SUCCESS] Backup berhasil disimpan di '/data/backup/backup_assets_20261123_124818.tar.gz'.
+[2026-11-23 12:48:19] [ERROR] Folder sumber '/folder_ngasal' tidak ditemukan!
+[2026-11-23 12:48:20] [ERROR] Jumlah parameter tidak sesuai. Cara pakai: /opt/sysguard/backup_ecommerce.sh <folder_sumber> <folder_tujuan>
+[2026-11-23 12:48:20] [ERROR] Permission Denied. Tidak memiliki izin menulis di folder '/data/source'.

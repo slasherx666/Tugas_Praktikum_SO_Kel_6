@@ -1,0 +1,6 @@
+backup_folder/*.tar.gz
+*.log
+.env
+*.pem
+*.key
+!evidence/*.log
